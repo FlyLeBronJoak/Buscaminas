@@ -53,7 +53,7 @@ public class VentanaBuscaminas extends javax.swing.JFrame {
     private void botonPulsado(MouseEvent e) {
 
         Boton miBoton = (Boton) e.getComponent();
-        if (e.getButton() == MouseEvent.BUTTON3) {
+        if (e.getButton() == MouseEvent.BUTTON3 && miBoton.isEnabled()) {
             miBoton.setIcon(bandera);
         }
         if (e.getButton() == MouseEvent.BUTTON1 && miBoton.getText().equals("")) {
