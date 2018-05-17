@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 /**
- * @author Gonzalo Izuzquiza
+ * @author Joaquin Sierra
  */
 public class VentanaBuscaminas extends javax.swing.JFrame {
 
@@ -61,7 +61,7 @@ public class VentanaBuscaminas extends javax.swing.JFrame {
                 miBoton.setIcon(bomba);
             } else if (miBoton.getNumeroMinasAlrededor() == 0) {
                 miBoton.setFocusPainted(false);
-                cambia(miBoton);
+                Alrededor(miBoton);
             } else {
                 miBoton.setText(String.valueOf(miBoton.getNumeroMinasAlrededor()));
                 miBoton.setEnabled(false);
@@ -70,7 +70,7 @@ public class VentanaBuscaminas extends javax.swing.JFrame {
         }
     }
 
-    private void cambia(Boton boton) {
+    private void Alrededor(Boton boton) {
 
         if (boton.getNumeroMinasAlrededor() == 0) {
             boton.setEnabled(false);
@@ -80,7 +80,7 @@ public class VentanaBuscaminas extends javax.swing.JFrame {
                         if (arrayBotones[boton.getI() + k][boton.getJ() + m].isEnabled()) {
                             if (arrayBotones[boton.getI() + k][boton.getJ() + m].getNumeroMinasAlrededor() == 0) {
                                 arrayBotones[boton.getI() + k][boton.getJ() + m].setEnabled(false);
-                                cambia(arrayBotones[boton.getI() + k][boton.getJ() + m]);
+                                Alrededor(arrayBotones[boton.getI() + k][boton.getJ() + m]);
                             } else if (arrayBotones[boton.getI() + k][boton.getJ() + m].getNumeroMinasAlrededor() != 0) {
                                 arrayBotones[boton.getI() + k][boton.getJ() + m].setEnabled(false);
                                 arrayBotones[boton.getI() + k][boton.getJ() + m].
@@ -103,7 +103,7 @@ public class VentanaBuscaminas extends javax.swing.JFrame {
             //TODO hay que hacer una version que chequee si en la casilla seleccionada ya hay una mina, 
             //porque en ese caso tiene que buscar otra
             arrayBotones[f][c].setMina(1);
-            arrayBotones[f][c].setIcon(bomba);
+            
         }
     }
 
@@ -130,9 +130,9 @@ public class VentanaBuscaminas extends javax.swing.JFrame {
 //                }
                 minas = 0;
 //                
-//                if(arrayBotones[i][j].getMina() == 1 ){
-//                    arrayBotones[i][j].setText("");
-//                }
+                if(arrayBotones[i][j].getMina() == 1 ){
+                    arrayBotones[i][j].setText("");
+                }
                 if (arrayBotones[i][j].getNumeroMinasAlrededor() == 0) {
                     arrayBotones[i][j].setEnabled(true);
                 }
