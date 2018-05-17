@@ -1,5 +1,6 @@
 package codigo;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -59,6 +60,8 @@ public class VentanaBuscaminas extends javax.swing.JFrame {
         if (e.getButton() == MouseEvent.BUTTON1 && miBoton.getText().equals("")) {
             if (miBoton.getMina() == 1) {
                 miBoton.setIcon(bomba);
+                miBoton.setOpaque(false);
+                miBoton.setBackground(Color.RED);
             } else if (miBoton.getNumeroMinasAlrededor() == 0) {
                 miBoton.setFocusPainted(false);
                 Alrededor(miBoton);
