@@ -29,9 +29,11 @@ public class VentanaBuscaminas extends javax.swing.JFrame {
     public VentanaBuscaminas() {
         initComponents();
         setSize(800, 600);
-        jDialog1.setSize(500, 200);
-        ganador.setVisible(false);
-        perdedor.setVisible(false);
+        jDialog1.setSize(600, 400);
+        setLocationRelativeTo(null);
+        jDialog1.setLocationRelativeTo(null);
+        
+        perdedor.setVisible(false);       
         getContentPane().setLayout(new GridLayout(filas, columnas));
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
@@ -178,6 +180,7 @@ public class VentanaBuscaminas extends javax.swing.JFrame {
         dispose();
     }
     
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -192,7 +195,6 @@ public class VentanaBuscaminas extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         perdedor = new javax.swing.JLabel();
-        ganador = new javax.swing.JLabel();
 
         jDialog1.setMaximumSize(new java.awt.Dimension(600, 600));
         jDialog1.setMinimumSize(new java.awt.Dimension(600, 600));
@@ -205,7 +207,7 @@ public class VentanaBuscaminas extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
-        jDialog1.getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 130, 40));
+        jDialog1.getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 130, 40));
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton2.setText("Reiniciar");
@@ -214,19 +216,13 @@ public class VentanaBuscaminas extends javax.swing.JFrame {
                 jButton2MouseClicked(evt);
             }
         });
-        jDialog1.getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 130, 40));
+        jDialog1.getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 130, 40));
 
-        perdedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/perdedor.jpg"))); // NOI18N
-        perdedor.setMaximumSize(new java.awt.Dimension(600, 400));
-        perdedor.setMinimumSize(new java.awt.Dimension(600, 400));
-        perdedor.setPreferredSize(new java.awt.Dimension(400, 20));
-        jDialog1.getContentPane().add(perdedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 510));
-
-        ganador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ganador.jpg"))); // NOI18N
-        ganador.setMaximumSize(new java.awt.Dimension(600, 400));
-        ganador.setMinimumSize(new java.awt.Dimension(600, 400));
-        ganador.setPreferredSize(new java.awt.Dimension(400, 20));
-        jDialog1.getContentPane().add(ganador, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 236, 250, 70));
+        perdedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/perder.jpg"))); // NOI18N
+        perdedor.setMaximumSize(new java.awt.Dimension(800, 600));
+        perdedor.setMinimumSize(new java.awt.Dimension(800, 600));
+        perdedor.setPreferredSize(new java.awt.Dimension(800, 600));
+        jDialog1.getContentPane().add(perdedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 520));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -290,7 +286,6 @@ public class VentanaBuscaminas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel ganador;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JDialog jDialog1;
