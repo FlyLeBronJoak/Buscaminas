@@ -70,7 +70,7 @@ public class VentanaBuscaminas extends javax.swing.JFrame {
                 perdedor.setVisible(true);
                 jButton1.setVisible(true);
                 GameOver();
-                this.setEnabled(false);
+//                this.setEnabled(false);
                 
             } else if (miBoton.getNumeroMinasAlrededor() == 0) {
                 miBoton.setFocusPainted(false);
@@ -205,7 +205,7 @@ public class VentanaBuscaminas extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
-        jDialog1.getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, 130, 40));
+        jDialog1.getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 130, 40));
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton2.setText("Reiniciar");
@@ -214,13 +214,13 @@ public class VentanaBuscaminas extends javax.swing.JFrame {
                 jButton2MouseClicked(evt);
             }
         });
-        jDialog1.getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, 130, 40));
+        jDialog1.getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 130, 40));
 
         perdedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/perdedor.jpg"))); // NOI18N
         perdedor.setMaximumSize(new java.awt.Dimension(600, 400));
         perdedor.setMinimumSize(new java.awt.Dimension(600, 400));
         perdedor.setPreferredSize(new java.awt.Dimension(400, 20));
-        jDialog1.getContentPane().add(perdedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 516));
+        jDialog1.getContentPane().add(perdedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 510));
 
         ganador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ganador.jpg"))); // NOI18N
         ganador.setMaximumSize(new java.awt.Dimension(600, 400));
@@ -246,11 +246,12 @@ public class VentanaBuscaminas extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         Reset();
+        jDialog1.dispose();
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         Close();
-        jDialog1.setVisible(false);
+        jDialog1.dispose();
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**
