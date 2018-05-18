@@ -68,6 +68,10 @@ public class VentanaBuscaminas extends javax.swing.JFrame {
                 miBoton.setBackground(Color.RED);
                 jDialog1.setVisible(true);
                 perdedor.setVisible(true);
+                jButton1.setVisible(true);
+                GameOver();
+                this.setEnabled(false);
+                
             } else if (miBoton.getNumeroMinasAlrededor() == 0) {
                 miBoton.setFocusPainted(false);
                 Alrededor(miBoton);
@@ -148,6 +152,32 @@ public class VentanaBuscaminas extends javax.swing.JFrame {
             }
         }
     }
+    
+    private void GameOver(){
+        for(int i=0;i<filas;i++){
+            for(int j=0;j<columnas;j++){
+                if(arrayBotones[i][j].getMina()==0){
+                    if(arrayBotones[i][j].getNumeroMinasAlrededor()!=0){
+                        arrayBotones[i][j].setText(String.valueOf(arrayBotones[i][j].getNumeroMinasAlrededor()));
+                    }
+                }
+                else {
+                    arrayBotones[i][j].setIcon(bomba);
+                }
+                arrayBotones[i][j].setEnabled(true);
+            }
+            
+        }
+    }
+    private void Reset(){
+        VentanaBuscaminas reset = new VentanaBuscaminas();
+        reset.setVisible(true);
+        dispose();
+    }
+    private void Close(){
+        dispose();
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -159,42 +189,44 @@ public class VentanaBuscaminas extends javax.swing.JFrame {
     private void initComponents() {
 
         jDialog1 = new javax.swing.JDialog();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         perdedor = new javax.swing.JLabel();
         ganador = new javax.swing.JLabel();
 
         jDialog1.setMaximumSize(new java.awt.Dimension(600, 600));
         jDialog1.setMinimumSize(new java.awt.Dimension(600, 600));
+        jDialog1.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton1.setText("Cerrar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jDialog1.getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, 130, 40));
+
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton2.setText("Reiniciar");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+        jDialog1.getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, 130, 40));
 
         perdedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/perdedor.jpg"))); // NOI18N
         perdedor.setMaximumSize(new java.awt.Dimension(600, 400));
         perdedor.setMinimumSize(new java.awt.Dimension(600, 400));
         perdedor.setPreferredSize(new java.awt.Dimension(400, 20));
+        jDialog1.getContentPane().add(perdedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 516));
 
         ganador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ganador.jpg"))); // NOI18N
         ganador.setMaximumSize(new java.awt.Dimension(600, 400));
         ganador.setMinimumSize(new java.awt.Dimension(600, 400));
         ganador.setPreferredSize(new java.awt.Dimension(400, 20));
-
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(perdedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jDialog1Layout.createSequentialGroup()
-                    .addGap(10, 10, 10)
-                    .addComponent(ganador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(perdedor, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)
-            .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jDialog1Layout.createSequentialGroup()
-                    .addGap(10, 10, 10)
-                    .addComponent(ganador, javax.swing.GroupLayout.DEFAULT_SIZE, 493, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
+        jDialog1.getContentPane().add(ganador, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 236, 250, 70));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -211,6 +243,15 @@ public class VentanaBuscaminas extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        Reset();
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        Close();
+        jDialog1.setVisible(false);
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -249,6 +290,8 @@ public class VentanaBuscaminas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ganador;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel perdedor;
     // End of variables declaration//GEN-END:variables

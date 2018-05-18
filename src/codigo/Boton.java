@@ -41,5 +41,9 @@ public class Boton extends JButton{
         return j;
     }
 
+    void setImagen(int numeroMinasAlrededor) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
 }
